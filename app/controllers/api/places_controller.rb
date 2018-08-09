@@ -10,10 +10,10 @@ class Api::PlacesController < ApplicationController
       address: params[:address]
     }
     @place = Place.new(parameters)
-    if @place.save
+    if @place.save # happy path
       render "show.json.jbuilder"
-    else
-      render json: {errors: @place.errors.full_messages, status: :bad_request}
+    else # sad path
+      render json: {errors: @place.errors.full_messages}, status: :bad_request
     end
   end
 end

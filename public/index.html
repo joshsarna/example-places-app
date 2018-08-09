@@ -7,6 +7,12 @@
   <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.js"></script>
   <script src="index.js" defer></script>
+
+  <style>
+    .red {
+      color: red;
+    }
+  </style>
 </head>
 <body>
   <div id="vue-app">
@@ -27,7 +33,7 @@
     </div>
 
     <div v-for="error in errors">
-      <p>ERROR: {{ error }}
+      <p v-bind:class="{red: true}">ERROR: {{ error }}
     </div>
     <h3>Add a New Place</h3>
     <p>Place: <input v-model="newPlace.name"></p>

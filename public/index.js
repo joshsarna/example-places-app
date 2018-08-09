@@ -28,8 +28,8 @@ var HomePage = {
     addPlace: function() {
       axios.post('/api/places', this.newPlace).then(function(response) {
         this.places.push(response.data);
-      }.bind(this)).catch(function(response) {
-        this.errors = response.errors;
+      }.bind(this)).catch(function(error) {
+        this.errors = error.response.data.errors;
         console.log("failed");
       }.bind(this));
     }
