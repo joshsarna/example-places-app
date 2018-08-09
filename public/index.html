@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My App</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.js"></script>
+  <script src="index.js" defer></script>
+</head>
+<body>
+  <div id="vue-app">
+
+    <router-view></router-view>
+
+  </div>
+</body>
+</html>
+
+<template id="home-page">
+  <div class="vue-component">
+
+    <h1>{{ message }}</h1>
+    <div v-for="place in places">
+      <p>Place: {{ place.name }}</p>
+      <p>Location: {{ place.address }}</p>
+    </div>
+
+    <div v-for="error in errors">
+      <p>ERROR: {{ error }}
+    </div>
+    <h3>Add a New Place</h3>
+    <p>Place: <input v-model="newPlace.name"></p>
+    <p>Location: <input v-model="newPlace.address"></p>
+    <p><button v-on:click="addPlace()">Add Now</button></p>
+
+  </div>
+</template>
